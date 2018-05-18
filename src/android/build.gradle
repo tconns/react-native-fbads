@@ -1,3 +1,5 @@
+apply plugin: 'com.android.library'
+
 buildscript {
     repositories {
         jcenter()
@@ -9,7 +11,6 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
@@ -27,14 +28,13 @@ android {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
     maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url "$rootDir/../../node_modules/react-native/android"
     }
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile 'com.facebook.android:audience-network-sdk:4.+'
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.android:audience-network-sdk:4+'
 }

@@ -13,13 +13,14 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
+import java.util.List;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Main package exporting native modules and views
  */
+
 public class FBAdsPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

@@ -71,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('MainApp', () => MainApp);
+AppRegistry.registerComponent('example_rn_fb_ads', () => MainApp);
