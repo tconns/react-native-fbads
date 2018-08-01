@@ -1,11 +1,13 @@
 /**
  * FBAdsPackage.java
  * io.callstack.react.fbads;
- *
+ * <p>
  * Created by Mike Grabowski on 25/09/16.
  * Copyright © 2016 Callstack.io. All rights reserved.
  */
 package io.callstack.react.fbads;
+
+import android.app.Activity;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -21,12 +23,19 @@ import java.util.List;
  * Main package exporting native modules and views
  */
 public class FBAdsPackage implements ReactPackage {
+    private Activity mActivity;
+
+    public FBAdsPackage(Activity activity) {
+        mActivity = activity;
+    }
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
-           new NativeAdManager(reactContext),
-           new AdSettingsManager(reactContext),
-           new InterstitialAdManager(reactContext)
+                new NativeAdManager(reactContext),
+                new AdSettingsManager(reactContext),
+                new InterstitialAdManager(reactContext),
+                new InStreamVideoViewManager(reactContext, mActivity)
         );
     }
 
@@ -38,8 +47,8 @@ public class FBAdsPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-           new NativeAdViewManager(reactContext),
-           new BannerViewManager(reactContext)
+                new NativeAdViewManager(reactContext),
+                new BannerViewManager(reactContext)
         );
     }
 }
